@@ -75,6 +75,22 @@ npm run dev
 
 ---
 
+## Vercel 배포
+
+```bash
+npx vercel login      # 최초 1회 (브라우저 인증)
+npx vercel link       # 이 폴더를 Vercel 프로젝트에 연결
+npm run vercel:env    # .env.local 값을 production/preview/development 에 등록
+npx vercel --prod     # 첫 배포
+```
+
+이후에는 `main` 브랜치에 push하면 자동 배포됩니다.
+
+`NEXT_PUBLIC_SITE_URL` 은 로컬 전용입니다. 결제 성공/실패 복귀 주소는
+런타임의 `window.location.origin` 을 쓰므로 배포 도메인이 바뀌어도 그대로 동작합니다.
+
+---
+
 ## 데이터베이스
 
 Supabase에 아래 테이블이 생성되어 있습니다. 모든 테이블에 RLS가 켜져 있고,
