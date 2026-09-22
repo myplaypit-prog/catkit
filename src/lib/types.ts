@@ -152,6 +152,8 @@ export type OrderItem = {
   image_url: string | null;
   unit_price: number;
   qty: number;
+  /** 썸네일용. 상품이 삭제되면 null 이 될 수 있습니다. */
+  products?: { kind: ProductKind } | null;
 };
 
 export type Order = {
@@ -184,6 +186,7 @@ export type CartLine = {
   qty: number;
   unitLabel: string | null;
   accent: string | null;
-  seed: string;
+  /** 썸네일에 쓸 제형. 이 필드가 생기기 전에 담아둔 장바구니는 없을 수 있습니다. */
+  kind?: ProductKind;
   rxRequired: boolean;
 };

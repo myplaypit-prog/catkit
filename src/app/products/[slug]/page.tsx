@@ -96,7 +96,7 @@ export default async function ProductDetailPage({
             <ProductThumb
               kind={product.kind}
               accent={accent}
-              seed={product.slug}
+              priority
               className="aspect-[4/3] w-full"
             />
           </div>

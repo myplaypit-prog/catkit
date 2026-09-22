@@ -94,9 +94,8 @@ export default function CartPage() {
                     className="shrink-0 overflow-hidden rounded-2xl border border-line"
                   >
                     <ProductThumb
-                      kind="dry"
+                      kind={l.kind ?? "dry"}
                       accent={l.accent}
-                      seed={l.seed}
                       compact
                       className="h-24 w-24"
                     />

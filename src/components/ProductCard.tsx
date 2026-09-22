@@ -24,7 +24,6 @@ export function ProductCard({
           <ProductThumb
             kind={product.kind}
             accent={accent}
-            seed={product.slug}
             className="h-full w-full"
           />
           <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">

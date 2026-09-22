@@ -23,7 +23,7 @@ export default async function OrdersPage() {
 
   const { data } = await supabase
     .from("orders")
-    .select("*, order_items(*)")
+    .select("*, order_items(*, products(kind))")
     .order("created_at", { ascending: false });
 
   const orders = (data ?? []) as Order[];
@@ -94,9 +94,7 @@ export default async function OrdersPage() {
                       <li key={it.id} className="flex items-center gap-4">
                         <span className="shrink-0 overflow-hidden rounded-2xl border border-line">
                           <ProductThumb
-                            kind="dry"
-                            accent="#E07A46"
-                            seed={it.slug ?? String(it.id)}
+                            kind={it.products?.kind ?? "dry"}
                             compact
                             className="h-16 w-16"
                           />

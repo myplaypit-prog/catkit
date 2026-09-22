@@ -16,7 +16,7 @@ function toLine(p: ProductWithRefs) {
     unitPrice: finalPrice(p.price, p.sale_price),
     unitLabel: p.unit_label,
     accent: p.accent ?? p.category?.accent ?? null,
-    seed: p.slug,
+    kind: p.kind,
     rxRequired: p.rx_required,
   };
 }
