@@ -201,7 +201,7 @@ export default async function CategoryPage({
                   }
                 />
               ) : (
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3">
                   {foods.map((p) => (
                     <ProductCard key={p.id} product={p} showCategory={false} />
                   ))}
@@ -216,7 +216,7 @@ export default async function CategoryPage({
                   title="건강기능식품"
                   desc={`${category.name} 관리에서 사료만으로 부족한 부분을 채워주는 제품들입니다.`}
                 />
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3">
                   {supps.map((p) => (
                     <ProductCard key={p.id} product={p} showCategory={false} />
                   ))}

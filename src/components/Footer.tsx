@@ -4,16 +4,23 @@ import { CatMark } from "./icons/CatArt";
 
 export function Footer({ categories }: { categories: Category[] }) {
   return (
-    <footer className="mt-24 border-t border-line bg-[#EEE7DC]">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <footer className="mt-20 border-t border-line bg-[#EEE7DC]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2">
               <CatMark size={32} />
-              <span className="brand-display text-[21px] font-bold tracking-tight">캣킷</span>
+              <span className="flex flex-col leading-none">
+                <span className="text-[19px] font-extrabold tracking-[-.045em] text-ink">
+                  무병장수
+                </span>
+                <span className="mt-[3px] text-[10px] font-bold tracking-[.01em] text-primary-deep">
+                  고양이 처방식 · 건강식
+                </span>
+              </span>
             </Link>
             <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-ink-soft">
-              아이가 나와 함께 오래도록, 건강하게. 캣킷은 성분과 근거를 살펴
+              아이가 나와 함께 오래도록, 건강하게. 무병장수는 성분과 근거를 살펴
               믿을 수 있는 제품을 먼저 고릅니다.
             </p>
             <p className="mt-4 text-[12px] leading-relaxed text-ink-faint">
@@ -47,16 +54,16 @@ export function Footer({ categories }: { categories: Category[] }) {
         </div>
 
         <div className="mt-12 rounded-[20px] border border-line bg-surface/70 p-5">
-          <p className="text-[12px] font-bold text-ink-soft">
+          <p className="text-[13px] font-bold text-ink-soft">
             꼭 확인해 주세요
           </p>
-          <p className="mt-2 text-[12px] leading-relaxed text-ink-faint">
-            캣킷에 실린 상품 설명과 근거 자료는 보호자의 이해를 돕기 위한
+          <p className="mt-2 text-[12.5px] leading-[1.75] text-ink-faint">
+            무병장수에 실린 상품 설명과 근거 자료는 보호자의 이해를 돕기 위한
             참고 정보이며, 수의사의 진단과 처방을 대신하지 않습니다. 처방식으로
             표시된 상품은 반드시 담당 수의사와 상의한 뒤 급여해 주세요. 상태가
             갑자기 나빠졌다면 온라인 상담보다 가까운 병원 방문이 먼저입니다.
           </p>
-          <p className="mt-3 text-[12px] leading-relaxed text-ink-faint">
+          <p className="mt-3 text-[12.5px] leading-[1.75] text-ink-faint">
             이 사이트는 학습·시연 목적으로 만들어진 데모입니다. 수의사·동물병원
             정보와 후기는 실제 인물·기관이 아닌 예시 데이터이며, 결제는
             토스페이먼츠 테스트 키로 동작해 실제 금액이 청구되지 않습니다.
@@ -64,7 +71,7 @@ export function Footer({ categories }: { categories: Category[] }) {
         </div>
 
         <p className="mt-8 text-[12px] text-ink-faint">
-          © {new Date().getFullYear()} catkit — 고양이 처방식 · 건강식 스토어
+          © {new Date().getFullYear()} 무병장수 — 고양이 처방식 · 건강식 스토어
         </p>
       </div>
     </footer>

@@ -117,7 +117,7 @@ function LoginInner() {
       {/* 폼 */}
       <div className="order-1 lg:order-2">
         <h1 className="text-[28px] font-extrabold tracking-tight">
-          {mode === "signin" ? "다시 오셨네요" : "캣킷에 오신 걸 환영해요"}
+          {mode === "signin" ? "다시 오셨네요" : "무병장수에 오신 걸 환영해요"}
         </h1>
         <p className="mt-2 text-[14px] text-ink-soft">
           {mode === "signin"

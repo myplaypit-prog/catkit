@@ -24,6 +24,7 @@ export function Header({ categories }: { categories: Category[] }) {
   const [user, setUser] = useState<SupaUser | null>(null);
   const [q, setQ] = useState("");
   const catRef = useRef<HTMLDivElement>(null);
+  const mobileSearchRef = useRef<HTMLInputElement>(null);
 
   /*
    * 메뉴는 "열려 있다"가 아니라 "어느 경로에서 열었나"를 기억합니다.
@@ -66,12 +67,18 @@ export function Header({ categories }: { categories: Category[] }) {
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-cream/92 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-6xl items-center gap-3 px-4 sm:px-6">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+        <Link
+          href="/"
+          aria-label="무병장수 홈"
+          className="flex shrink-0 items-center gap-2.5"
+        >
           <CatMark size={38} />
-          <span className="brand-display text-[22px] font-bold tracking-tight">
-            캣킷
-            <span className="ml-2 hidden font-sans text-[9px] font-extrabold tracking-[.18em] text-primary sm:inline">
-              CATKIT
+          <span className="flex flex-col leading-none">
+            <span className="text-[20px] font-extrabold tracking-[-.045em] text-ink sm:text-[21px]">
+              무병장수
+            </span>
+            <span className="mt-[3px] hidden text-[10px] font-bold tracking-[.01em] text-primary-deep sm:block">
+              고양이 처방식 · 건강식
             </span>
           </span>
         </Link>
@@ -132,6 +139,19 @@ export function Header({ categories }: { categories: Category[] }) {
         </nav>
 
         <div className="ml-auto flex items-center gap-1.5">
+          {/* 모바일: 검색은 1차 동선이라 헤더에서 한 번에 열 수 있게 */}
+          <button
+            type="button"
+            onClick={() => {
+              setOpenMenu(true);
+              requestAnimationFrame(() => mobileSearchRef.current?.focus());
+            }}
+            aria-label="상품 검색 열기"
+            className="grid h-10 w-10 place-items-center rounded-full text-ink-soft transition hover:bg-primary-soft hover:text-primary-deep md:hidden"
+          >
+            <Search size={20} />
+          </button>
+
           <form
             onSubmit={submitSearch}
             className="hidden items-center gap-2 rounded-full border border-line-strong bg-surface px-3.5 py-2 transition focus-within:border-primary focus-within:ring-4 focus-within:ring-primary-soft md:flex"
@@ -187,6 +207,7 @@ export function Header({ categories }: { categories: Category[] }) {
           >
             <Search size={17} className="text-ink-faint" />
             <input
+              ref={mobileSearchRef}
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="어떤 증상을 찾고 계신가요?"

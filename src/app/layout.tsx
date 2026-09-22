@@ -7,8 +7,8 @@ import { getCategories } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: {
-    default: "캣킷 — 믿을 수 있는 고양이 건강 큐레이션",
-    template: "%s | 캣킷",
+    default: "무병장수 — 고양이 처방식 · 건강식 스토어",
+    template: "%s | 무병장수",
   },
   description:
     "아이가 나와 함께 오래도록, 건강하게. 근거를 확인한 고양이 처방식과 건강기능식품을 먼저 고릅니다.",
@@ -20,12 +20,14 @@ export const metadata: Metadata = {
     "고양이 영양제",
   ],
   openGraph: {
-    title: "캣킷 — 믿을 수 있는 고양이 건강 큐레이션",
+    title: "무병장수 — 고양이 처방식 · 건강식 스토어",
     description:
       "아이가 나와 함께 오래도록, 건강하게. 믿을 수 있는 제품을 먼저.",
     type: "website",
     locale: "ko_KR",
+    siteName: "무병장수",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

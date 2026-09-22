@@ -30,7 +30,7 @@ export function Badge({
 
 export function RxBadge() {
   return (
-    <Badge fg="#C25F2C" bg="#FDEDE3">
+    <Badge fg="#9F432A" bg="#FDEDE3">
       처방식
     </Badge>
   );

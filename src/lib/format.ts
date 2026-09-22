@@ -29,11 +29,14 @@ export function formatDateTime(iso: string) {
   return formatDate(iso) + " " + hh + ":" + mi;
 }
 
-/** 토스 orderId 규격: 영문/숫자/-/_/= 조합 6~64자 */
+/**
+ * 주문번호. 결제완료 · 결제실패 · 주문내역 화면에 그대로 노출되므로
+ * 브랜드(무병장수)를 따릅니다. 토스 orderId 규격은 영문/숫자/-/_/= 6~64자.
+ */
 export function makeOrderCode() {
   const t = Date.now().toString(36).toUpperCase();
   const r = Math.random().toString(36).slice(2, 8).toUpperCase();
-  return "CATKIT-" + t + "-" + r;
+  return "MBJS-" + t + "-" + r;
 }
 
 /** 문자열을 안정적인 0~n-1 정수로 (일러스트 배정용) */

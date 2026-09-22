@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
-/* catkit brand system — warm care, clinical clarity */
+/* 무병장수 brand system — warm care, clinical clarity */
 :root {
   --cream:        #FCF8F1;
   --cream-deep:   #F4EDE1;
+  --hero:         #F3EBDF;
   --surface:      #FFFFFF;
   --ink:          #292D27;
-  --ink-soft:     #676A60;
-  --ink-faint:    #929487;
+  /* 본문 보조 5.9:1 / 메타 4.7:1 — 크림 배경에서 WCAG AA 충족 */
+  --ink-soft:     #5E6157;
+  --ink-faint:    #6E7065;
   --line:         #EAE2D6;
   --line-strong:  #D8CDBE;
 
-  --primary:      #C85F3D;
+  /* 흰 글씨 버튼 4.9:1, 크림 위 텍스트 4.6:1 — AA 충족선까지 내린 테라코타 */
+  --primary:      #B9502F;
   --primary-deep: #9F432A;
   --primary-soft: #F8E5DC;
 
@@ -32,6 +35,7 @@
 @theme inline {
   --color-cream:        var(--cream);
   --color-cream-deep:   var(--cream-deep);
+  --color-hero:         var(--hero);
   --color-surface:      var(--surface);
   --color-ink:          var(--ink);
   --color-ink-soft:     var(--ink-soft);
