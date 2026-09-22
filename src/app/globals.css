@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────
+   catkit 디자인 토큰 — 따뜻한 크림 · 살구 · 세이지
+   ────────────────────────────────────────────────────────── */
+:root {
+  --cream:        #FFFBF6;
+  --cream-deep:   #FDF3E9;
+  --surface:      #FFFFFF;
+  --ink:          #3A2C24;
+  --ink-soft:     #7A6557;
+  --ink-faint:    #A99483;
+  --line:         #F1E5D8;
+  --line-strong:  #E5D3C1;
+
+  --primary:      #E07A46;
+  --primary-deep: #C25F2C;
+  --primary-soft: #FDEDE3;
+
+  --sage:         #6F9B6A;
+  --sage-soft:    #EDF4EC;
+  --honey:        #E3A23C;
+  --honey-soft:   #FBF1E1;
+  --sky:          #5F93B8;
+  --sky-soft:     #E9F2F8;
+  --mauve:        #BE7FA1;
+  --mauve-soft:   #F7EBF2;
+  --blush:        #F2C7BC;
+
+  --shadow-soft:  0 2px 10px rgba(122, 88, 60, 0.05), 0 12px 30px -12px rgba(122, 88, 60, 0.14);
+  --shadow-lift:  0 4px 14px rgba(122, 88, 60, 0.08), 0 20px 44px -16px rgba(122, 88, 60, 0.22);
+}
+
+@theme inline {
+  --color-cream:        var(--cream);
+  --color-cream-deep:   var(--cream-deep);
+  --color-surface:      var(--surface);
+  --color-ink:          var(--ink);
+  --color-ink-soft:     var(--ink-soft);
+  --color-ink-faint:    var(--ink-faint);
+  --color-line:         var(--line);
+  --color-line-strong:  var(--line-strong);
+  --color-primary:      var(--primary);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-soft: var(--primary-soft);
+  --color-sage:         var(--sage);
+  --color-sage-soft:    var(--sage-soft);
+  --color-honey:        var(--honey);
+  --color-honey-soft:   var(--honey-soft);
+  --color-sky:          var(--sky);
+  --color-sky-soft:     var(--sky-soft);
+  --color-mauve:        var(--mauve);
+  --color-mauve-soft:   var(--mauve-soft);
+  --color-blush:        var(--blush);
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+               system-ui, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+
+  --radius-xl2: 1.5rem;
+  --radius-xl3: 2rem;
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.015em;
+  word-break: keep-all;
+}
+
+::selection { background: var(--primary-soft); color: var(--primary-deep); }
+
+/* 스크롤바 — 데스크톱에서만 살짝 다듬기 */
+@media (pointer: fine) {
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 99px;
+    border: 3px solid var(--cream);
+  }
+  ::-webkit-scrollbar-track { background: transparent; }
+}
+
+/* 가로 스크롤 영역의 스크롤바 숨김 */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* 부드러운 등장 */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-rise { animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-9px) rotate(-1.2deg); }
+}
+.animate-floaty { animation: floaty 5.5s ease-in-out infinite; }
+
+@keyframes tailwag {
+  0%, 100% { transform: rotate(-5deg); }
+  50%      { transform: rotate(7deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 본문 마크다운 느낌의 설명 블록 */
+.prose-warm p { margin-bottom: 1rem; line-height: 1.85; color: var(--ink-soft); }
+.prose-warm p:last-child { margin-bottom: 0; }
