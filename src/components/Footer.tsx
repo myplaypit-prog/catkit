@@ -42,6 +42,7 @@ export function Footer({ categories }: { categories: Category[] }) {
             <FooterLink href="/products">처방식 전체</FooterLink>
             <FooterLink href="/supplements">건강기능식품</FooterLink>
             <FooterLink href="/products?rx=rx">처방전 필요 상품</FooterLink>
+            <FooterLink href="/wishlist">찜한 상품</FooterLink>
             <FooterLink href="/cart">장바구니</FooterLink>
             <FooterLink href="/orders">주문 내역</FooterLink>
           </FooterCol>

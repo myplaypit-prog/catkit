@@ -7,8 +7,17 @@ import type { User as SupaUser } from "@supabase/supabase-js";
 import type { Category } from "@/lib/types";
 import { createClient } from "@/lib/supabase/client";
 import { useCart } from "./CartProvider";
+import { useWishlist } from "./WishlistProvider";
 import { CatMark, CategoryIcon } from "./icons/CatArt";
-import { Cart, ChevronDown, Close, Menu, Search, User } from "./icons/Ico";
+import {
+  Cart,
+  ChevronDown,
+  Close,
+  Heart,
+  Menu,
+  Search,
+  User,
+} from "./icons/Ico";
 
 const NAV = [
   { href: "/products", label: "처방식 전체" },
@@ -21,6 +30,7 @@ export function Header({ categories }: { categories: Category[] }) {
   const pathname = usePathname();
   const router = useRouter();
   const { count, ready } = useCart();
+  const { count: wishCount, ready: wishReady } = useWishlist();
   const [user, setUser] = useState<SupaUser | null>(null);
   const [q, setQ] = useState("");
   const catRef = useRef<HTMLDivElement>(null);
@@ -167,6 +177,23 @@ export function Header({ categories }: { categories: Category[] }) {
           </form>
 
           <Link
+            href="/wishlist"
+            aria-label={
+              wishReady && wishCount > 0
+                ? `찜한 상품 ${wishCount}개`
+                : "찜한 상품"
+            }
+            className="relative grid h-10 w-10 place-items-center rounded-full text-ink-soft transition hover:bg-primary-soft hover:text-primary-deep"
+          >
+            <Heart size={21} filled={wishReady && wishCount > 0} />
+            {wishReady && wishCount > 0 ? (
+              <span className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-primary px-1 text-[10px] font-bold text-white">
+                {wishCount > 99 ? "99+" : wishCount}
+              </span>
+            ) : null}
+          </Link>
+
+          <Link
             href="/cart"
             aria-label="장바구니"
             className="relative grid h-10 w-10 place-items-center rounded-full text-ink-soft transition hover:bg-primary-soft hover:text-primary-deep"
@@ -245,6 +272,15 @@ export function Header({ categories }: { categories: Category[] }) {
                 {n.label}
               </Link>
             ))}
+            <Link
+              href="/wishlist"
+              className="rounded-2xl px-3 py-3 text-[15px] font-semibold text-ink-soft transition hover:bg-cream-deep"
+            >
+              찜한 상품
+              {wishReady && wishCount > 0 ? (
+                <span className="ml-1.5 text-primary">{wishCount}</span>
+              ) : null}
+            </Link>
             <Link
               href={user ? "/orders" : "/login"}
               className="rounded-2xl px-3 py-3 text-[15px] font-semibold text-ink-soft transition hover:bg-cream-deep"

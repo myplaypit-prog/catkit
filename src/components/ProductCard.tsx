@@ -5,6 +5,7 @@ import { KIND_LABEL, LIFE_STAGE_SHORT, SUPP_LABEL } from "@/lib/labels";
 import { Badge, Rating, RxBadge } from "./ui";
 import { ProductThumb } from "./ProductThumb";
 import { AddToCartMini } from "./AddToCart";
+import { WishButton } from "./WishButton";
 
 export function ProductCard({
   product,
@@ -34,6 +35,12 @@ export function ProductCard({
               </Badge>
             ) : null}
           </div>
+
+          <WishButton
+            productId={product.id}
+            productName={product.name}
+            className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3"
+          />
         </div>
 
         {/* 모바일 2열에서도 읽히도록 여백·타입 스케일을 한 단계 낮춤 */}

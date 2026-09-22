@@ -175,6 +175,20 @@ export async function getProductsBySlugs(
   return (data ?? []) as unknown as ProductWithRefs[];
 }
 
+/** 찜 목록처럼 id 묶음으로 가져올 때. 순서는 호출한 쪽에서 맞춥니다 */
+export async function getProductsByIds(
+  ids: number[],
+): Promise<ProductWithRefs[]> {
+  if (ids.length === 0) return [];
+  const supabase = createPublicClient();
+  const { data } = await supabase
+    .from("products")
+    .select(PRODUCT_SELECT)
+    .eq("is_active", true)
+    .in("id", ids);
+  return (data ?? []) as unknown as ProductWithRefs[];
+}
+
 export async function getVets(): Promise<Vet[]> {
   const supabase = createPublicClient();
   const { data } = await supabase.from("vets").select("*").order("sort_order");

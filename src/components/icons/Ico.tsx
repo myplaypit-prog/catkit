@@ -158,6 +158,33 @@ export const Truck = (p: P) => (
   </S>
 );
 
+/** 찜하기 — filled 로 담김/안 담김을 표현합니다 */
+export function Heart({
+  size = 20,
+  className,
+  style,
+  strokeWidth = 1.8,
+  filled = false,
+}: P & { filled?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      className={className}
+      style={style}
+      fill={filled ? "currentColor" : "none"}
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 20.3C6.7 16.9 3.6 13.9 3.6 10.4A4.6 4.6 0 0 1 12 7.7a4.6 4.6 0 0 1 8.4 2.7c0 3.5-3.1 6.5-8.4 9.9Z" />
+    </svg>
+  );
+}
+
 export function Star({
   size = 16,
   className,

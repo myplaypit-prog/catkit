@@ -5,6 +5,7 @@ import { getProduct, getRelatedProducts } from "@/lib/queries";
 import { ProductThumb } from "@/components/ProductThumb";
 import { ProductCard } from "@/components/ProductCard";
 import { AddToCartPanel } from "@/components/AddToCart";
+import { WishButtonWide } from "@/components/WishButton";
 import { Badge, Card, Rating, RxBadge, SectionHead } from "@/components/ui";
 import { CategoryIcon } from "@/components/icons/CatArt";
 import {
@@ -190,6 +191,10 @@ export default async function ProductDetailPage({
 
           <div className="mt-6">
             <AddToCartPanel product={product} />
+          </div>
+
+          <div className="mt-2">
+            <WishButtonWide productId={product.id} productName={product.name} />
           </div>
 
           <div className="mt-6 space-y-2.5 rounded-[22px] border border-line bg-cream-deep/40 p-5">

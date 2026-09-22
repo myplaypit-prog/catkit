@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
+import { WishlistProvider } from "@/components/WishlistProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getCategories } from "@/lib/queries";
@@ -51,9 +52,11 @@ export default async function RootLayout({
       </head>
       <body className="flex min-h-full flex-col">
         <CartProvider>
-          <Header categories={categories} />
-          <main className="flex-1">{children}</main>
-          <Footer categories={categories} />
+          <WishlistProvider>
+            <Header categories={categories} />
+            <main className="flex-1">{children}</main>
+            <Footer categories={categories} />
+          </WishlistProvider>
         </CartProvider>
       </body>
     </html>
