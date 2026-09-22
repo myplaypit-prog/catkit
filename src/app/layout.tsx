@@ -7,11 +7,11 @@ import { getCategories } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: {
-    default: "캣킷 — 고양이 처방식 · 건강식 스토어",
+    default: "캣킷 — 믿을 수 있는 고양이 건강 큐레이션",
     template: "%s | 캣킷",
   },
   description:
-    "신부전, 췌장염, 피부병, 알러지, 회복식. 근거가 확인된 고양이 처방식과 건강기능식품을 질환별로 골라 담으세요.",
+    "아이가 나와 함께 오래도록, 건강하게. 근거를 확인한 고양이 처방식과 건강기능식품을 먼저 고릅니다.",
   keywords: [
     "고양이 처방식",
     "고양이 신부전 사료",
@@ -20,16 +20,16 @@ export const metadata: Metadata = {
     "고양이 영양제",
   ],
   openGraph: {
-    title: "캣킷 — 고양이 처방식 · 건강식 스토어",
+    title: "캣킷 — 믿을 수 있는 고양이 건강 큐레이션",
     description:
-      "아픈 고양이를 돌보는 보호자를 위해, 근거가 확인된 처방식과 건강기능식품만 모았습니다.",
+      "아이가 나와 함께 오래도록, 건강하게. 믿을 수 있는 제품을 먼저.",
     type: "website",
     locale: "ko_KR",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFBF6",
+  themeColor: "#FCF8F1",
   width: "device-width",
   initialScale: 1,
 };

@@ -105,7 +105,7 @@ export function ConsultForm({
     return (
       <div className="rounded-[24px] border border-sage/30 bg-sage-soft/50 p-7 text-center">
         <div className="relative mx-auto w-fit">
-          <CatFace fur="sage" mood="happy" size={92} />
+          <CatFace fur="tabby" mood="happy" size={92} />
           <span className="absolute -right-1 bottom-0 grid h-8 w-8 place-items-center rounded-full bg-sage text-white">
             <Check size={18} strokeWidth={3} />
           </span>

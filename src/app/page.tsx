@@ -8,7 +8,8 @@ import {
   getVets,
 } from "@/lib/queries";
 import { ProductCard } from "@/components/ProductCard";
-import { CatFaceStack, HeroArt } from "@/components/HeroArt";
+import { CatFaceStack } from "@/components/HeroArt";
+import { HeroArtNew } from "@/components/HeroArtNew";
 import { CategoryIcon, CatFace } from "@/components/icons/CatArt";
 import { Badge, Card, Rating, SectionHead, btnGhost, btnPrimary } from "@/components/ui";
 import {
@@ -41,31 +42,25 @@ export default async function HomePage() {
   return (
     <>
       {/* ── 히어로 ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:pb-24 lg:pt-16">
+      <section className="relative overflow-hidden border-b border-line bg-[#F1E8DC]">
+        <div className="paper-noise absolute inset-0 opacity-30" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:pb-16 lg:pt-14">
           <div className="animate-rise">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-surface px-3.5 py-1.5 text-[12px] font-bold text-primary-deep">
-              <Sparkle size={14} />
-              근거를 함께 적어두는 고양이 처방식 스토어
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-white/70 px-3.5 py-1.5 text-[12px] font-bold text-primary-deep">
+              <Sparkle size={14} /> CATKIT CARE CURATION
             </span>
 
-            <h1 className="mt-5 text-[34px] font-extrabold leading-[1.25] tracking-tight sm:text-[44px]">
-              우리 아이가 아플 때,
-              <br />
-              <span className="text-primary">무엇을 먹여야 할지</span>
-              <br />
-              혼자 검색하지 마세요
+            <h1 className="brand-display mt-6 text-[39px] font-bold leading-[1.22] text-ink sm:text-[52px] lg:text-[56px]">
+              아이가 나와 함께<br />오래도록, <span className="text-primary">건강하게.</span>
             </h1>
 
-            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-ink-soft">
-              신부전, 췌장염, 피부병, 알러지, 회복식. 질환별로 골라낸 처방식과
-              건강기능식품에 <b className="font-bold text-ink">왜 이 제품인지</b>{" "}
-              논문과 가이드라인까지 붙여 두었습니다.
+            <p className="mt-6 max-w-lg text-[16px] font-semibold leading-relaxed text-ink-soft">
+              믿을 수 있는 제품을 먼저.<span className="mt-2 block text-[14px] font-normal leading-relaxed">질환별 영양 기준과 성분, 논문과 진료 가이드라인까지 살펴 우리 아이에게 필요한 선택만 차분하게 안내합니다.</span>
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/products" className={btnPrimary}>
-                질환별 처방식 보기
+                건강 고민별 제품 보기
                 <ChevronRight size={17} />
               </Link>
               <Link href="/vets" className={btnGhost}>
@@ -77,21 +72,19 @@ export default async function HomePage() {
               <div className="flex items-center gap-2.5">
                 <CatFaceStack />
                 <p className="text-[12.5px] leading-tight text-ink-soft">
-                  <b className="font-bold text-ink">2,480명</b>의 보호자가
-                  <br />
-                  캣킷에서 아이 밥을 고르고 있어요
+                  <b className="font-bold text-ink">2,480명의 보호자</b>가<br />캣킷의 기준으로 함께 고르고 있어요
                 </p>
               </div>
             </div>
           </div>
 
           <div className="animate-rise" style={{ animationDelay: "120ms" }}>
-            <HeroArt />
+            <HeroArtNew />
           </div>
         </div>
 
         {/* 신뢰 스트립 */}
-        <div className="border-y border-line bg-surface/60">
+        <div className="relative border-t border-line bg-white/72">
           <div className="mx-auto grid max-w-6xl gap-4 px-4 py-6 sm:grid-cols-3 sm:px-6">
             <TrustItem
               icon={<Book size={18} />}
@@ -217,7 +210,7 @@ export default async function HomePage() {
 
       {/* ── 근거 배너 ──────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-        <div className="overflow-hidden rounded-[28px] border border-line bg-gradient-to-br from-sage-soft via-cream to-sky-soft">
+        <div className="overflow-hidden rounded-[32px] border border-line bg-gradient-to-br from-sage-soft via-cream to-honey-soft shadow-[var(--shadow-soft)]">
           <div className="grid items-center gap-8 p-8 sm:p-12 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
               <Badge fg="#4F7F4A" bg="#FFFFFF">
@@ -226,7 +219,7 @@ export default async function HomePage() {
               <h2 className="mt-4 text-[24px] font-extrabold leading-snug sm:text-[30px]">
                 &ldquo;좋아요&rdquo; 대신
                 <br />
-                <span className="text-sage">어떤 연구에서 그랬는지</span>를 적습니다
+                <span className="text-sage">어떤 근거에서 그랬는지</span>를 적습니다
               </h2>
               <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-ink-soft">
                 모든 상품 상세에는 그 성분과 설계를 뒷받침하는 연구·가이드라인이
@@ -242,7 +235,7 @@ export default async function HomePage() {
                 />
                 <EvidenceChip
                   level="B"
-                  fg="#4E7FA3"
+                  fg="#8A6048"
                   bg="#FFFFFF"
                   desc="대조군 연구 · 코호트 · 종설"
                 />
@@ -263,8 +256,8 @@ export default async function HomePage() {
             </div>
             <div className="relative hidden justify-center lg:flex">
               <Image
-                src="/illustrations/cat-green.png"
-                alt="초록빛 고양이 일러스트"
+                src="/illustrations/cat-calico.png"
+                alt="자연스러운 삼색 고양이 일러스트"
                 width={512}
                 height={512}
                 className="animate-floaty w-[74%] drop-shadow-[0_18px_28px_rgba(122,88,60,0.14)]"

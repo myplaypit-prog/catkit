@@ -18,7 +18,7 @@ export function ProductCard({
   const accent = product.accent ?? product.category?.accent ?? "#E07A46";
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-line bg-surface shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-lift)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-line bg-surface shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-lift)]">
       <Link href={`/products/${product.slug}`} className="flex flex-1 flex-col">
         <div className="relative aspect-[4/3] w-full">
           <ProductThumb

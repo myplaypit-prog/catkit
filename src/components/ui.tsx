@@ -118,7 +118,7 @@ export function Card({
   return (
     <As
       className={
-        "rounded-[22px] border border-line bg-surface shadow-[var(--shadow-soft)] " +
+        "rounded-[24px] border border-line bg-surface shadow-[var(--shadow-soft)] " +
         className
       }
     >
@@ -202,10 +202,10 @@ function SleepyCat() {
 /* ── 버튼 클래스 (일관된 톤) ──────────────────────────── */
 
 export const btnPrimary =
-  "inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-[14px] font-bold text-white transition hover:bg-primary-deep active:scale-[0.985] disabled:cursor-not-allowed disabled:bg-line-strong disabled:text-ink-faint";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-[14px] font-bold text-white shadow-[0_8px_24px_-12px_rgba(159,67,42,.72)] transition hover:-translate-y-0.5 hover:bg-primary-deep active:scale-[0.985] disabled:cursor-not-allowed disabled:bg-line-strong disabled:text-ink-faint";
 
 export const btnGhost =
-  "inline-flex items-center justify-center gap-2 rounded-full border border-line-strong bg-surface px-5 py-3 text-[14px] font-bold text-ink transition hover:border-primary hover:text-primary active:scale-[0.985]";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-line-strong bg-surface px-6 py-3 text-[14px] font-bold text-ink transition hover:-translate-y-0.5 hover:border-primary hover:text-primary active:scale-[0.985]";
 
 export const btnSoft =
   "inline-flex items-center justify-center gap-2 rounded-full bg-primary-soft px-5 py-3 text-[14px] font-bold text-primary-deep transition hover:bg-blush/50 active:scale-[0.985]";

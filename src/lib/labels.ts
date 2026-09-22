@@ -50,7 +50,7 @@ export const EVIDENCE_SHORT: Record<EvidenceLevel, string> = {
 
 export const EVIDENCE_TONE: Record<EvidenceLevel, { fg: string; bg: string }> = {
   A: { fg: "#4F7F4A", bg: "#EDF4EC" },
-  B: { fg: "#4E7FA3", bg: "#E9F2F8" },
+  B: { fg: "#8A6048", bg: "#EFE6DE" },
   C: { fg: "#A9813A", bg: "#FBF1E1" },
 };
 

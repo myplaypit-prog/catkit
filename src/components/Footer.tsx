@@ -4,17 +4,17 @@ import { CatMark } from "./icons/CatArt";
 
 export function Footer({ categories }: { categories: Category[] }) {
   return (
-    <footer className="mt-24 border-t border-line bg-cream-deep/60">
+    <footer className="mt-24 border-t border-line bg-[#EEE7DC]">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2">
               <CatMark size={32} />
-              <span className="text-[18px] font-extrabold tracking-tight">캣킷</span>
+              <span className="brand-display text-[21px] font-bold tracking-tight">캣킷</span>
             </Link>
             <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-ink-soft">
-              아픈 고양이를 돌보는 일은 외롭습니다. 캣킷은 근거가 확인된 처방식과
-              건강기능식품만 골라, 왜 그런지까지 함께 적어 둡니다.
+              아이가 나와 함께 오래도록, 건강하게. 캣킷은 성분과 근거를 살펴
+              믿을 수 있는 제품을 먼저 고릅니다.
             </p>
             <p className="mt-4 text-[12px] leading-relaxed text-ink-faint">
               평일 10:00 – 18:00 · 점심 13:00 – 14:00

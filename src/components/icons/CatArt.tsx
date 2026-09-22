@@ -6,7 +6,7 @@ import type { CSSProperties } from "react";
    둥근 실루엣 · 볼터치 · 감은 눈의 미소를 공통 문법으로 씁니다.
    ══════════════════════════════════════════════════════════ */
 
-export type FurName = "cream" | "orange" | "calico" | "sage" | "grey";
+export type FurName = "cream" | "orange" | "calico" | "tabby" | "grey";
 
 type Fur = {
   base: string;
@@ -38,12 +38,12 @@ export const FURS: Record<FurName, Fur> = {
     ear: "#F2BCAA",
     patch: "#D99338",
   },
-  sage: {
-    base: "#CFE0CB",
-    shade: "#B4CCAF",
-    light: "#E8F1E6",
+  tabby: {
+    base: "#B99573",
+    shade: "#8A6A50",
+    light: "#D9C2A8",
     ear: "#EDBDB0",
-    patch: "#9CBE96",
+    patch: "#6F513E",
   },
   grey: {
     base: "#DCD5CE",
@@ -54,7 +54,7 @@ export const FURS: Record<FurName, Fur> = {
   },
 };
 
-export const FUR_NAMES: FurName[] = ["cream", "orange", "calico", "sage", "grey"];
+export const FUR_NAMES: FurName[] = ["cream", "orange", "calico", "tabby", "grey"];
 
 type FaceProps = {
   fur?: FurName;
@@ -187,23 +187,10 @@ export function CatMark({
       className={className}
       aria-hidden="true"
     >
-      <rect width="40" height="40" rx="13" fill="#E07A46" />
-      <g strokeLinejoin="round">
-        <path d="M11 17 9.5 8.5 18 12Z" fill="#FFF3E6" stroke="#FFF3E6" strokeWidth="3.4" />
-        <path d="M29 17l1.5-8.5L22 12Z" fill="#FFF3E6" stroke="#FFF3E6" strokeWidth="3.4" />
-      </g>
-      <path
-        d="M20 11c6.2 0 10.6 4.4 10.6 10.4S26.2 33 20 33 9.4 27.4 9.4 21.4 13.8 11 20 11Z"
-        fill="#FFF3E6"
-      />
-      <g fill="none" stroke="#C25F2C" strokeWidth="2.1" strokeLinecap="round">
-        <path d="M14.6 21.2q2-2.4 4 0" />
-        <path d="M21.4 21.2q2-2.4 4 0" />
-      </g>
-      <path
-        d="M20 30.2c-2.6-1.8-4.2-3.4-4.2-5.2a2.2 2.2 0 0 1 4.2-1 2.2 2.2 0 0 1 4.2 1c0 1.8-1.6 3.4-4.2 5.2Z"
-        fill="#E8927A"
-      />
+      <rect width="40" height="40" rx="12" fill="#465747" />
+      <path d="M10.5 18.3 9.3 9.2l8.3 4.1h4.8l8.3-4.1-1.2 9.1" fill="none" stroke="#FCF8F1" strokeWidth="3.1" strokeLinejoin="round" strokeLinecap="round" />
+      <path d="M9.8 18c0 8.5 4.5 13.1 10.2 15 5.7-1.9 10.2-6.5 10.2-15" fill="none" stroke="#FCF8F1" strokeWidth="3.1" strokeLinecap="round" />
+      <path d="M20 29.2c-3.1-2.1-5-4-5-6.2a2.8 2.8 0 0 1 5-1.7 2.8 2.8 0 0 1 5 1.7c0 2.2-1.9 4.1-5 6.2Z" fill="#E9BBA8" />
     </svg>
   );
 }

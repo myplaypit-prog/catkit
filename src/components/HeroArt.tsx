@@ -115,7 +115,7 @@ export function HeroArt() {
 
 /** 작은 고양이 얼굴 3개가 겹쳐 있는 스트립 (후기 · 신뢰 표시용) */
 export function CatFaceStack({ size = 34 }: { size?: number }) {
-  const cats = ["cat-cream", "cat-calico", "cat-green"];
+  const cats = ["cat-cream", "cat-calico", "cat-orange"];
   return (
     <div className="flex items-center -space-x-2.5">
       {cats.map((c) => (

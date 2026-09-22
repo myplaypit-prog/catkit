@@ -70,8 +70,8 @@ export default async function ClinicsPage({
 
           <div className="relative mx-auto hidden max-w-[280px] lg:block">
             <Image
-              src="/illustrations/cat-green.png"
-              alt="초록빛 고양이 일러스트"
+              src="/illustrations/cat-cream.png"
+              alt="크림색 고양이 일러스트"
               width={512}
               height={512}
               className="animate-floaty w-full drop-shadow-[0_18px_28px_rgba(122,88,60,0.14)]"

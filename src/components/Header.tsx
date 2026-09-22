@@ -58,14 +58,14 @@ export function Header({ categories }: { categories: Category[] }) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-cream/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-cream/92 backdrop-blur-xl">
+      <div className="mx-auto flex h-[72px] max-w-6xl items-center gap-3 px-4 sm:px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2">
-          <CatMark size={34} />
-          <span className="text-[19px] font-extrabold tracking-tight">
+          <CatMark size={38} />
+          <span className="brand-display text-[22px] font-bold tracking-tight">
             캣킷
-            <span className="ml-1 hidden text-[11px] font-bold text-ink-faint sm:inline">
-              catkit
+            <span className="ml-2 hidden font-sans text-[9px] font-extrabold tracking-[.18em] text-primary sm:inline">
+              CATKIT
             </span>
           </span>
         </Link>
