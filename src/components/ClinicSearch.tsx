@@ -1,17 +1,26 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Close, Search } from "./icons/Ico";
 
 export function ClinicSearch({ regions }: { regions: string[] }) {
   const router = useRouter();
   const sp = useSearchParams();
-  const [term, setTerm] = useState(sp.get("q") ?? "");
 
-  useEffect(() => {
-    setTerm(sp.get("q") ?? "");
-  }, [sp]);
+  /*
+   * 입력창은 사용자가 직접 고치지만, 뒤로가기 등으로 URL이 바뀌면
+   * 거기에 맞춰야 합니다. effect로 되돌리면 한 프레임 늦게 반영돼
+   * 깜빡이므로, 렌더 중에 바로 조정합니다.
+   * https://react.dev/learn/you-might-not-need-an-effect
+   */
+  const urlTerm = sp.get("q") ?? "";
+  const [term, setTerm] = useState(urlTerm);
+  const [lastUrlTerm, setLastUrlTerm] = useState(urlTerm);
+  if (lastUrlTerm !== urlTerm) {
+    setLastUrlTerm(urlTerm);
+    setTerm(urlTerm);
+  }
 
   const region = sp.get("region") ?? "all";
   const night = sp.get("night") === "1";

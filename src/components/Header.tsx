@@ -22,10 +22,21 @@ export function Header({ categories }: { categories: Category[] }) {
   const router = useRouter();
   const { count, ready } = useCart();
   const [user, setUser] = useState<SupaUser | null>(null);
-  const [openMenu, setOpenMenu] = useState(false);
-  const [openCat, setOpenCat] = useState(false);
   const [q, setQ] = useState("");
   const catRef = useRef<HTMLDivElement>(null);
+
+  /*
+   * 메뉴는 "열려 있다"가 아니라 "어느 경로에서 열었나"를 기억합니다.
+   * 페이지를 이동하면 pathname이 달라지므로 따로 닫아주지 않아도
+   * 자동으로 닫힙니다 — effect 안에서 setState 할 일이 없어집니다.
+   */
+  const [menuAt, setMenuAt] = useState<string | null>(null);
+  const [catAt, setCatAt] = useState<string | null>(null);
+  const openMenu = menuAt === pathname;
+  const openCat = catAt === pathname;
+
+  const setOpenMenu = (open: boolean) => setMenuAt(open ? pathname : null);
+  const setOpenCat = (open: boolean) => setCatAt(open ? pathname : null);
 
   useEffect(() => {
     const supabase = createClient();
@@ -37,14 +48,9 @@ export function Header({ categories }: { categories: Category[] }) {
   }, []);
 
   useEffect(() => {
-    setOpenMenu(false);
-    setOpenCat(false);
-  }, [pathname]);
-
-  useEffect(() => {
     function onDown(e: MouseEvent) {
       if (catRef.current && !catRef.current.contains(e.target as Node)) {
-        setOpenCat(false);
+        setCatAt(null);
       }
     }
     document.addEventListener("mousedown", onDown);
@@ -75,7 +81,7 @@ export function Header({ categories }: { categories: Category[] }) {
           <div className="relative" ref={catRef}>
             <button
               type="button"
-              onClick={() => setOpenCat((v) => !v)}
+              onClick={() => setOpenCat(!openCat)}
               className="flex items-center gap-1 rounded-full px-3 py-2 text-[14px] font-semibold text-ink-soft transition hover:bg-primary-soft hover:text-primary-deep"
               aria-expanded={openCat}
             >
@@ -163,7 +169,7 @@ export function Header({ categories }: { categories: Category[] }) {
 
           <button
             type="button"
-            onClick={() => setOpenMenu((v) => !v)}
+            onClick={() => setOpenMenu(!openMenu)}
             aria-label="메뉴"
             className="grid h-10 w-10 place-items-center rounded-full text-ink-soft transition hover:bg-primary-soft lg:hidden"
           >

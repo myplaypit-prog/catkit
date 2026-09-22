@@ -35,19 +35,16 @@ function SuccessInner() {
   const [message, setMessage] = useState("");
   const onceRef = useRef(false);
 
+  // 파라미터 검증은 렌더 중에 끝냅니다 — effect 안에서 setState 할 이유가 없습니다.
+  const paymentKey = sp.get("paymentKey");
+  const orderId = sp.get("orderId");
+  const amount = sp.get("amount");
+  const paramsMissing = !paymentKey || !orderId || !amount;
+
   useEffect(() => {
+    if (paramsMissing) return;
     if (onceRef.current) return;
     onceRef.current = true;
-
-    const paymentKey = sp.get("paymentKey");
-    const orderId = sp.get("orderId");
-    const amount = sp.get("amount");
-
-    if (!paymentKey || !orderId || !amount) {
-      setState("error");
-      setMessage("결제 정보가 전달되지 않았습니다.");
-      return;
-    }
 
     (async () => {
       try {
@@ -72,18 +69,20 @@ function SuccessInner() {
         setMessage("서버와 통신하지 못했습니다. 잠시 후 주문 내역을 확인해 주세요.");
       }
     })();
-  }, [sp, clear]);
+  }, [paramsMissing, paymentKey, orderId, amount, clear]);
 
-  if (state === "loading") return <Pending />;
+  if (state === "loading" && !paramsMissing) return <Pending />;
 
-  if (state === "error") {
+  if (state === "error" || paramsMissing) {
     return (
       <div className="mx-auto max-w-lg px-4 py-20 text-center sm:px-6">
         <CatFace fur="grey" mood="sleepy" size={110} className="mx-auto" />
         <h1 className="mt-6 text-[24px] font-extrabold">
           결제를 마무리하지 못했어요
         </h1>
-        <p className="mt-3 text-[14px] leading-relaxed text-ink-soft">{message}</p>
+        <p className="mt-3 text-[14px] leading-relaxed text-ink-soft">
+          {paramsMissing ? "결제 정보가 전달되지 않았습니다." : message}
+        </p>
         <div className="mt-8 flex flex-wrap justify-center gap-2.5">
           <Link href="/cart" className={btnPrimary}>
             장바구니로 돌아가기

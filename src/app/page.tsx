@@ -8,8 +8,7 @@ import {
   getVets,
 } from "@/lib/queries";
 import { ProductCard } from "@/components/ProductCard";
-import { CatFaceStack } from "@/components/HeroArt";
-import { HeroArtNew } from "@/components/HeroArtNew";
+import { CatFaceStack, HeroArt } from "@/components/HeroArt";
 import { CategoryIcon, CatFace } from "@/components/icons/CatArt";
 import { Badge, Card, Rating, SectionHead, btnGhost, btnPrimary } from "@/components/ui";
 import {
@@ -79,7 +78,7 @@ export default async function HomePage() {
           </div>
 
           <div className="animate-rise" style={{ animationDelay: "120ms" }}>
-            <HeroArtNew />
+            <HeroArt />
           </div>
         </div>
 
